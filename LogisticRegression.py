@@ -1,18 +1,14 @@
-import math
+#In this we are applying Logistic Regression  algorithm on Titanic dataset
 
 import numpy as np
 
 import pandas as pd
 
-#from pandas import DataFrame
-
 from sklearn import preprocessing
 
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split
-#from sklearn.cross_validation import train_test_split
 
-from numpy import loadtxt, where
+from sklearn.model_selection import train_test_split
 
 from pylab import scatter, show, legend, xlabel, ylabel
 
@@ -29,7 +25,6 @@ df.columns = ['PassengerId',	'Survived',	'Name',	'Sex',	'Age',	'SibSp',	'Parch',
 df = df[["Sex", "Age", "Survived", "Pclass","Fare"]]
 cd = df['Pclass']
 df.dropna(inplace=True)
-print(cd.head)
 x = df["Survived"]
 
 X = df[["Pclass", "Sex", "Age","Fare"]]
@@ -46,7 +41,8 @@ Y = Y.astype(float)
 
 X_train, X1_test, Y_train, Y1_test = train_test_split(X, Y,test_size=0.0001)
 
-# train scikit learn model
+
+
 df = pd.read_csv("test.csv", header=0)
 
 # clean up data

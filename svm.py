@@ -1,28 +1,15 @@
-# Decision Tree with Gini IndexPython
-# clf_gini = DecisionTreeClassifier(criterion = "gini", random_state = 100,
-#                                max_depth=3, min_samples_leaf=5)
-# clf_gini.fit(X_train, y_train)
+#In this we are applying SVC algorithm on Titanic dataset
 
-
-import math
 
 import numpy as np
 
 import pandas as pd
 
-#from pandas import DataFrame
-
 from sklearn import preprocessing
 
-from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-#from sklearn.cross_validation import train_test_split
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn.svm import SVC
 
-from numpy import loadtxt, where
+from sklearn.svm import SVC
 
 from pylab import scatter, show, legend, xlabel, ylabel
 
@@ -56,7 +43,7 @@ Y = Y.astype(float)
 
 X_train, X1_test, Y_train, Y1_test = train_test_split(X, Y,test_size=0.0001)
 
-# train scikit learn model
+
 df = pd.read_csv("test.csv", header=0)
 
 # clean up data
@@ -81,7 +68,7 @@ X1_train, X_test, Y1_train, Y_test = train_test_split(X1, Y1, test_size=0.99, ra
 
 
 
-#clf = GaussianNB()
+
 clf = SVC(probability=False,  # cache_size=200,
               kernel="rbf", C=2.8, gamma=.0073)
 clf.fit(X_train, Y_train)

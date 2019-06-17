@@ -1,25 +1,16 @@
-# Decision Tree with Gini IndexPython
-# clf_gini = DecisionTreeClassifier(criterion = "gini", random_state = 100,
-#                                max_depth=3, min_samples_leaf=5)
-# clf_gini.fit(X_train, y_train)
+#In this we are applying Decision Tree algorithm on Titanic dataset
 
 
-import math
 
 import numpy as np
 
 import pandas as pd
 
-#from pandas import DataFrame
-
 from sklearn import preprocessing
 
-from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-#from sklearn.cross_validation import train_test_split
-from sklearn.tree import DecisionTreeClassifier
 
-from numpy import loadtxt, where
+from sklearn.tree import DecisionTreeClassifier
 
 from pylab import scatter, show, legend, xlabel, ylabel
 
@@ -53,7 +44,7 @@ Y = Y.astype(float)
 
 X_train, X1_test, Y_train, Y1_test = train_test_split(X, Y,test_size=0.0001)
 
-# train scikit learn model
+
 df = pd.read_csv("test.csv", header=0)
 
 # clean up data
@@ -67,8 +58,7 @@ X1 = df[["Pclass","Sex","Age","Fare"]]
 X1 = np.array(X)
 
 X1 = min_max_scaler.fit_transform(X)
-# X = X.astype(float)
-# Y = Y.astype(float)
+
 Y1 = df["Survived"]
 
 Y1 = np.array(Y)
@@ -77,7 +67,7 @@ X1 = X1.astype(float)
 X1_train, X_test, Y1_train, Y_test = train_test_split(X1, Y1, test_size=0.99, random_state=101)
 
 
-
+# train scikit learn model
 clf = DecisionTreeClassifier(criterion = "gini", random_state = 100,
                                max_depth=3, min_samples_leaf=5)
 clf.fit(X_train, Y_train)

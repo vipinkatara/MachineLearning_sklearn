@@ -1,28 +1,18 @@
-# Decision Tree with Gini IndexPython
-# clf_gini = DecisionTreeClassifier(criterion = "gini", random_state = 100,
-#                                max_depth=3, min_samples_leaf=5)
-# clf_gini.fit(X_train, y_train)
+#In this we are applying Random Forest algorithm on Titanic dataset
 
-
-import math
 
 import numpy as np
 
 import pandas as pd
 
-#from pandas import DataFrame
-
 from sklearn import preprocessing
 
-from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-#from sklearn.cross_validation import train_test_split
-from sklearn.tree import DecisionTreeClassifier
+
 from sklearn.ensemble import RandomForestClassifier
 
-from numpy import loadtxt, where
-
 from pylab import scatter, show, legend, xlabel, ylabel
+
 
 # scale larger positive and values to between -1,1 depending on the largest
 # value in the data
@@ -37,9 +27,6 @@ df.columns = ['PassengerId',	'Survived',	'Name',	'Sex',	'Age',	'SibSp',	'Parch',
 df = df[["Sex", "Age", "Survived", "Pclass", "Parch","Fare"]]
 cd = df['Pclass']
 df.dropna(inplace=True)
-print(cd.head)
-#x = df["Survived"]
-
 X = df[["Pclass", "Sex", "Age","Fare"]]
 
 X = np.array(X)
@@ -54,7 +41,7 @@ Y = Y.astype(float)
 
 X_train, X1_test, Y_train, Y1_test = train_test_split(X, Y,test_size=0.0001)
 
-# train scikit learn model
+
 df = pd.read_csv("test.csv", header=0)
 
 # clean up data
